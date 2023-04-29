@@ -1,0 +1,77 @@
+body{
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+  
+.logo h1 {
+    margin-right: 10px;
+    color: green;
+}
+  
+.logo img {
+    height: 50px;
+}
+.menu{
+    float: left;
+    width: 15%;
+    color: green;
+}
+.menu li{
+    padding: 25px 0;
+}
+.menu a{
+    font-size: 30px; 
+    color: red;
+    
+    
+}
+
+
+.texto{
+   text-align: left;
+   display: inline-block;
+   width: 30%;
+   border: 1px solid black;
+   padding: 10px;
+   
+}
+.texto h2{
+    color : green;
+    
+}
+.texto a{
+    color: rgb(66, 109, 2);
+}
+.texto .lista {
+    color: blue;
+    list-style-position: inside;
+   
+}
+.texto span{
+    color:orangered;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+   
+    text-align: center;
+}
+footer ul{
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+footer li{
+    display: inline;
+    margin: 0 10px;
+    
+}
