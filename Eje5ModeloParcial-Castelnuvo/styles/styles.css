@@ -1,0 +1,64 @@
+body{
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    
+    
+}
+.titulo{    
+    background-color: cadetblue ;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    
+   
+}
+.titulo h2{
+    margin: 0 80px;
+}
+.titulo img{
+    height: 5vh;
+    margin: 0;
+    
+    
+
+}
+
+
+.primertexto{
+  padding-top: 17px;
+  padding-left: 550px;
+  width: 37%;
+  
+  
+    
+}
+
+
+
+.primertexto img{
+    float: left;
+    margin-right: 20px;
+}
+
+.ejmeplos{
+    
+    width: 37%;
+    padding-left: 550px;
+}
+
+.ejmeplos #text{
+    text-decoration: none;
+}
+.ejmeplos h2{
+    text-decoration: underline;
+}
+.ejmeplos li{
+    list-style: none;
+    padding: 25px 0;
+}
+.ejmeplos p{
+    text-indent: 2em;
+   
+}
