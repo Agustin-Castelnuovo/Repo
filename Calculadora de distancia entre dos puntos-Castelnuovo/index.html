@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+   
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+    <div class="col-lg-8 mt-3 bg-secondary">
+    <p>Elija la dimensionalidad necesaria:</p>
+    <div>
+     <span>Dimensionalidad:</span>
+     <select name="dimensiones" id="dimensiones">
+        <option value="2">2</option>
+        <option value="3">3</option>
+     </select> 
+    </div>
+    <p>Introduzca las coordenadas de puntos.</p>
+    <div id="D-1-1" style="display: none;">
+        <span>A:(</span>
+        <input type="number" id="lado1" class="form-control form-control-sm d-inline">
+        <span>,</span>
+        <input type="number" id="lado2" class="form-control form-control-sm d-inline" >
+        <span>)</span>
+    </div>
+    <div id="D-1-2" style="display: none;" class="mt-3">
+        <span>B:(</span>
+        <input type="number" id="lado3" class="form-control form-control-sm d-inline">
+        <span>,</span>
+        <input type="number" id="lado4" class="form-control form-control-sm d-inline">
+        <span>)</span>
+    </div>
+
+    <div id="D-2-1" style="display: none;">
+        <span>A:(</span>
+        <input type="number" id="lado5" class="form-control form-control-sm d-inline">
+        <span>,</span>
+        <input type="number" id="lado6" class="form-control form-control-sm d-inline">
+        <span>,</span>
+        <input type="number" id="lado7" class="form-control form-control-sm d-inline">
+        <span>)</span>
+    </div>
+    <div id="D-2-2" style="display: none;" class="mt-3">
+        <span>B:(</span>
+        <input type="number" id="lado8" class="form-control form-control-sm d-inline">
+        <span>,</span>
+        <input type="number" id="lado9" class="form-control form-control-sm d-inline">
+        <span>,</span>
+        <input type="number" id="lado10" class="form-control form-control-sm d-inline">
+        <span>)</span>
+    </div>
+    
+    <div class="mt-3">
+    <button onclick="Raiz2()">Calcular longitud del segmento AB</button>
+    </div>
+
+    <div class="mt-3">
+        <button onclick="Borrar()">Borrar</button>
+    </div>
+
+</div>
+
+    <div class="col-lg-4 mt-3 bg-secondary">
+        <img src="img/Captura de pantalla 2023-06-21 201248.png" alt="">
+    </div>
+</div>
+
+</div>    
+<div id="Resultado" style="display: none;">
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <p class="bg-success">Resultado:</p>
+        <div class="col-md-6 offset-md-3 custom-bg ">
+            <label id="label">XXXXXXX</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+
+
+    <script>
+        function MostrarVal(){
+            var select = document.getElementById("dimensiones");
+            var div1_1 = document.getElementById("D-1-1");
+            var div1_2 = document.getElementById("D-1-2");
+            var div2_1 = document.getElementById("D-2-1");
+            var div2_2 = document.getElementById("D-2-2");
+
+
+            if(select.value === "2"){
+                div1_1.style.display = "block";
+                div1_2.style.display = "block";
+                div2_1.style.display = "none";
+                div2_2.style.display = "none";
+            } else if (select.value === "3"){
+                div1_1.style.display = "none";
+                div1_2.style.display = "none";
+                div2_1.style.display = "block";
+                div2_2.style.display = "block";
+            }
+        }
+        var select = document.getElementById("dimensiones");
+        select.addEventListener("change", MostrarVal);
+        window.addEventListener("load", MostrarVal);
+    </script>
+
+    <script>
+        function Raiz2(){
+            var select = document.getElementById("dimensiones");
+            var v1 = parseFloat(document.getElementById("lado1").value);
+            var v2 = parseFloat(document.getElementById("lado2").value);
+            var v3 = parseFloat(document.getElementById("lado3").value);
+            var v4 = parseFloat(document.getElementById("lado4").value);
+
+            var v5 = parseFloat(document.getElementById("lado5").value);
+            var v6 = parseFloat(document.getElementById("lado6").value);
+            var v7 = parseFloat(document.getElementById("lado7").value);
+            var v8 = parseFloat(document.getElementById("lado8").value);
+            var v9 = parseFloat(document.getElementById("lado9").value);
+            var v10 = parseFloat(document.getElementById("lado10").value);
+
+            var m1 = document.getElementById("Resultado")
+
+
+            if(select.value === "2"){
+                m1.style.display = "block";
+
+                if (v1 <= 0 || v2 <= 0 || v3 <= 0 || v4 <= 0) {
+                m1.style.display = "none";  
+                alert("No se pueden ingresar valores iguales o menores a cero.");
+                return; 
+                }
+
+                var resultado =  Math.sqrt(Math.pow(v3-v1,2)+ Math.pow(v4-v2,2))
+
+                var resultadoLabel = document.getElementById("label");
+                resultadoLabel.textContent = resultado;
+
+                //alert("La longitud del segmento AB es: " + resultado);
+
+            }else if (select.value === "3"){
+                var resultado =  Math.sqrt(Math.pow(v8-v5,2)+ Math.pow(v9-v6,2)+ Math.pow(v10-v7,2))
+                m1.style.display = "block";
+
+                if (v5 <= 0 || v6 <= 0 || v7 <= 0 || v8 <= 0 || v9 <= 0 || v10 <= 0) {
+                m1.style.display = "none";    
+                alert("No se pueden ingresar valores iguales o menores a cero.");
+                return; 
+                }
+
+                //alert("La longitud del segmento AB es: " + resultado);
+                var resultadoLabel = document.getElementById("label");
+                resultadoLabel.textContent = resultado;
+
+            }
+
+          
+
+
+
+           
+        }
+
+
+
+    </script>
+
+    <script>
+        function Borrar(){
+            document.getElementById("lado1").value = "";
+            document.getElementById("lado2").value = "";
+            document.getElementById("lado3").value = "";
+            document.getElementById("lado4").value = "";
+            document.getElementById("lado5").value = "";
+            document.getElementById("lado6").value = "";
+            document.getElementById("lado7").value = "";
+            document.getElementById("lado8").value = "";
+            document.getElementById("lado9").value = "";
+            document.getElementById("lado10").value = "";
+            
+            var m1 = document.getElementById("Resultado")
+            var resultadoLabel = document.getElementById("label");
+            resultadoLabel.textContent = ""; 
+
+            m1.style.display = "none";
+        }
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
